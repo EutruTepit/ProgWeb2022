@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientesControllers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('clientes/novo', [ClientesControllers::class, 'cadastro_novo']);
+
+Route::post('/clientes/novo', [ClientesControllers::class, 'novo'])->name('clientes_novo');
+
+Route::get('clientes/listar', [ClientesControllers::class, 'listar'])->name('clientes_listar');
