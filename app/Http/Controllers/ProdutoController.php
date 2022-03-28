@@ -26,7 +26,7 @@ class ProdutoController extends Controller
 
     // Listagem de produtos
     function listar(){
-        $prdutos = Produto::all();
-        return view('lista_produto', ['produtos' => $prdutos]);
+        $produtos = Produto::all();
+        return view('lista_produto', ['produtos' => $produtos]);
     }
 }
