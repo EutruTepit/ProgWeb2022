@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 // Rotas relacionadas ao cliente
-Route::get('clientes/novo', [ClientesControllers::class, 'cadastro_novo']);
+Route::get('clientes/novo', [ClientesControllers::class, 'cadastro_novo'])->name('cliente_cadastro');
 Route::post('/clientes/novo', [ClientesControllers::class, 'novo'])->name('clientes_novo');
 Route::get('clientes/listar', [ClientesControllers::class, 'listar'])->name('clientes_listar');
 

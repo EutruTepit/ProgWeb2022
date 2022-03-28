@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@extends('template')
 
-<body>
-    @foreach ($clientes as $c )
-        <div>
-            Nome:{{ $c->nome }} - Telefone: {{ $c->telefone }} - Renda: {{ $c->renda }} 
-        </div>
+@section('titulo')
+    Lista de Clientes
+@endsection
+
+@section('conteudo')
+    @foreach ($'clientes as $c )
+    <div>
+        Nome:{{ $c->nome }} - Telefone: {{ $c->telefone }} - Renda: {{ $c->renda }} 
+    </div>
     @endforeach
-</body>
-
-</html>
+@endsection
