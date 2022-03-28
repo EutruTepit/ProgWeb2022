@@ -21,8 +21,8 @@
         </div>
         
         <div class="row mt-5">
-            <div class="col"></div>
-            <div class="col">
+            <div class="col-2"></div>
+            <div class="col-8">
                 <form action="{{ route('produtos_novo') }}" method="post">
                     @csrf
                     <label for="nome" class="form-label">Nome</label>
@@ -41,7 +41,7 @@
                     </p>
                 </form>
             </div>
-            <div class="col"></div>
+            <div class="col-2"></div>
         </div>
     </div>
 
