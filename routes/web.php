@@ -26,5 +26,5 @@ Route::get('clientes/listar', [ClientesControllers::class, 'listar'])->name('cli
 
 // Rotas relacionadas ao produto
 Route::get('produto/cadastro', [ProdutoController::class, 'cadastro_novo'])->name('produto_cadastro');
-Route::post('/clientes/novo', [ProdutoController::class, 'novo'])->name('produtos_novo');
+Route::post('/produto/novo', [ProdutoController::class, 'novo'])->name('produtos_novo');
 Route::get('produto/lista', [ProdutoController::class, 'listar'])->name('produto_listar');
