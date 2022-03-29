@@ -37,3 +37,6 @@ Route::get('/produto/lista', [ProdutoController::class, 'listar'])->name('produt
 Route::get('/fornecedores/cadastro', [ForncedoresController::class, 'cadastro_novo'])->name('fornecedor_cadastro');
 Route::post('/fornecedores/novo', [ForncedoresController::class, 'novo'])->name('forncedores_novo');
 Route::get('/fornecedores/listar', [ForncedoresController::class, 'listar'])->name('fornecedor_listar');
+Route::get('/fornecedores/alterar/{id}', [ForncedoresController::class, 'alterar'])->name('fornecedor_alterar');
+Route::post('/fornecedores/editar', [ForncedoresController::class, 'editar'])->name('fornecedores_editar');
+Route::get('/fornecedores/excluir/{id}', [ForncedoresController::class, 'excluir'])->name('fornecedor_excluir');
