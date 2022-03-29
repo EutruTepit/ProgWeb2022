@@ -35,3 +35,5 @@ Route::get('/produto/lista', [ProdutoController::class, 'listar'])->name('produt
 
 // Rotas relacionadas aos fornecedores
 Route::get('/fornecedores/cadastro', [ForncedoresController::class, 'cadastro_novo'])->name('fornecedor_cadastro');
+Route::post('/fornecedores/novo', [ForncedoresController::class, 'novo'])->name('forncedores_novo');
+Route::get('/fornecedores/listar', [ForncedoresController::class, 'listar'])->name('fornecedor_listar');
