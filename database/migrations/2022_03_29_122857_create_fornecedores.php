@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nome', 200);
             $table->string('endereco', 200);
             $table->integer('cep'); // Numero limitado de casas 8
+            $table->string('cidade', 200);
             $table->foreignId('estado_id')->constrained('estados');
             $table->timestamps();
         });
