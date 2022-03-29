@@ -18,6 +18,7 @@ Welcome | Links
             <a href="{{ route('clientes_listar') }}" class="btn btn-primary">Listas de cliente</a>
             <a href="{{ route('produto_cadastro') }}" class="btn btn-primary">Cadastro Produto</a>
             <a href="{{ route('produto_listar') }}" class="btn btn-primary">Listas de produtos</a>
+            <a href="{{ route('fornecedor_cadastro') }}" class="btn btn-primary">Cadastro Fornecedores</a>
         </div>
         <div class="col-2"></div>
     </div>    
