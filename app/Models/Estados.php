@@ -9,4 +9,8 @@ class Estados extends Model
 {
     use HasFactory;
     protected $table = 'estados';
+
+    public function fornecedores(){
+        return $this->hasMany(Fornecedores::class);
+    }
 }

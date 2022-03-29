@@ -32,7 +32,7 @@ Lista de Produtos
                             <td> {{ $f->endereco }} </td>
                             <td> {{ $f->cep }} </td>
                             <td> {{ $f->cidade }} </td>
-                            <td> {{ $f->estado_id }} </td>
+                            <td> {{ $f->estado->nome }} </td>
                         </tr>
                     @endforeach
                 </tbody>
