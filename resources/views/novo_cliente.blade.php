@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('template')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Novo cliente</title>
-</head>
+@section('titulo')
+Cliente Novo 
+@endsection
 
-<body>
+@section('conteudo')
     <h1>Novo Cliente</h1>
     <form action="{{ route('clientes_novo') }}" method="post">
         @csrf
@@ -23,6 +19,4 @@
 
         <input type="submit" value="Enviar">
     </form>
-</body>
-
-</html>
+@endsection

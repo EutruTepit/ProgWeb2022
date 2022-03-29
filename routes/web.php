@@ -17,12 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 // Rotas relacionadas ao cliente
-Route::get('clientes/novo', [ClientesControllers::class, 'cadastro_novo']);
+Route::get('/clientes/novo', [ClientesControllers::class, 'cadastro_novo'])->name('cliente_cadastro');
 Route::post('/clientes/novo', [ClientesControllers::class, 'novo'])->name('clientes_novo');
-Route::get('clientes/listar', [ClientesControllers::class, 'listar'])->name('clientes_listar');
+Route::get('/clientes/listar', [ClientesControllers::class, 'listar'])->name('clientes_listar');
+Route::get('/clientes/alterar/{id}', [ClientesControllers::class, 'alterar'])->name('cliente_alterar');
+Route::post('/clientes/alterar', [ClientesControllers::class, 'salvar'])->name('clientes_salvar');
+Route::get('/clientes/excluir/{id}', [ClientesControllers::class, 'excluir'])->name('cliente_excluir');
 
 // Rotas relacionadas ao produto
 Route::get('produto/cadastro', [ProdutoController::class, 'cadastro_novo'])->name('produto_cadastro');
