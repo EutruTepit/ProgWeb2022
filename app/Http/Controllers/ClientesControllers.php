@@ -12,15 +12,10 @@ class ClientesControllers extends Controller{
 
     // recebe metodo post
     function novo(Request $req){
-        # dd($req);
-        $nome = $req->input('nome');
-        $telefone = $req->input('telefone');
-        $renda = $req->input('renda');
-
         $cliente = new Cliente();
-        $cliente->nome = $nome;
-        $cliente->telefone = $telefone;
-        $cliente->renda = $renda;
+        $cliente->nome = $req->input('nome');
+        $cliente->telefone = $req->input('telefone');
+        $cliente->renda = $req->input('renda');
 
         $cliente->save();
 
@@ -30,5 +25,29 @@ class ClientesControllers extends Controller{
     function listar(){
         $clientes = Cliente::all();
         return view('lista_cliente', ['clientes' => $clientes]);
+    }
+
+    function alterar($id){
+        $cliente = Cliente::findOrFail($id);
+        return view('altera_cliente', ['cliente' => $cliente]);
+    }
+
+    function salvar(Request $req){
+        $id = $req->input('id');
+
+        $cliente = Cliente::findOrFail($id);
+        $cliente->nome = $req->input('nome');
+        $cliente->telefone = $req->input('telefone');
+        $cliente->renda = $req->input('renda');
+
+        $cliente->save();
+
+        return redirect()->route('clientes_listar');
+    }
+
+    function excluir($id){
+        Cliente::findOrFail($id)->delete();
+
+        return redirect()->route('clientes_listar');
     }
 }

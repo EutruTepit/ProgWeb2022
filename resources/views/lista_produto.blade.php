@@ -16,7 +16,7 @@ Lista de Produtos
         <div class="col-8">
             <table class="table">
                 <thead>
-                    <th scope="col">id</th>
+                    <th scope="col">#id</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Categoria</th>
                     <th scope="col">Preço</th>
