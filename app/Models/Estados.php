@@ -13,4 +13,8 @@ class Estados extends Model
     public function fornecedores(){
         return $this->hasMany(Fornecedores::class);
     }
+
+    public function endereco(){
+        return $this->hasMany(Endereco::class);
+    }
 }
