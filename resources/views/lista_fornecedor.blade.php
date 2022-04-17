@@ -38,6 +38,7 @@ Lista de Fornecedores
                             <td> 
                                 <a href="{{ route('fornecedor_alterar', ['id' => $f->id]) }}" class="btn btn-warning">Alterar</a>
                                 <a href="#" onclick="excluir({{ $f->id }})" class="btn btn-danger">Excluir</a>
+                                <a href="{{ route('fornecedor_lista_produtos', ['id' => $f->id]) }}" class="btn btn-success">Produtos</a>
                             </td>
                         </tr>
                     @endforeach

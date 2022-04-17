@@ -13,4 +13,8 @@ class Fornecedores extends Model
     public function estado(){
         return $this->belongsTo(Estados::class);
     }
+
+    public function produtos(){
+        return $this->hasMany(Produto::class);
+    }
 }
