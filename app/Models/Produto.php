@@ -11,6 +11,7 @@ class Produto extends Model
     protected $table = "produtos";
 
     public function fornecedor(){
-        return $this->hasOne(Fornecedores::class);
+        # por algum motivo ele n consegue resolver sozinho como em outros casos, sendo assim é necessário especificar os campos
+        return $this->hasOne(Fornecedores::class, 'id', 'fornecedores_id');
     }
 }
