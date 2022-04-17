@@ -9,4 +9,8 @@ class Produto extends Model
 {
     use HasFactory;
     protected $table = "produtos";
+
+    public function fornecedor(){
+        return $this->belongsTo(Fornecedores::class);
+    }
 }
