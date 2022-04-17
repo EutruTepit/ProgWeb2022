@@ -16,6 +16,13 @@ Cadastro Produto
         <div class="col-6">
             <form action="{{ route('produtos_novo') }}" method="post">
                 @csrf
+                <label for="fornecedor_id" class="form-label">Fornecedor</label>
+                <select class="form-select" name="fornecedor_id" id="fornecedor_id">
+                    @foreach ($fornecedores as $f)
+                        <option value="{{ $f->id }}">{{ $f->nome }}</option>
+                    @endforeach
+                </select><br>
+
                 <label for="nome" class="form-label">Nome</label>
                 <input type="text" name="nome" id="nome" class="form-control"><br>
         

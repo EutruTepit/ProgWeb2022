@@ -7,7 +7,9 @@ Lista de Produtos
 @section('conteudo')
     <div class="row pt-4">
         <h1 class="text-center">
-            Lista de Produtos
+            Lista de Produtos @if ( !empty($fornecedor) )
+                do fornecedor {{ $fornecedor->nome }}.
+            @endif
         </h1>
     </div>
 
@@ -20,6 +22,7 @@ Lista de Produtos
                     <th scope="col">Nome</th>
                     <th scope="col">Categoria</th>
                     <th scope="col">Preço</th>
+                    <th scope="col">Fornecedor</th>
                 </thead>
 
                 <tbody>
@@ -29,6 +32,7 @@ Lista de Produtos
                             <td> {{ $p->nome }} </td>
                             <td> {{ $p->categoria }} </td>
                             <td> {{ $p->preco }} </td>
+                            <td> {{ $p->fornecedor->nome }} </td>
                         </tr>
                     @endforeach
                 </tbody>
