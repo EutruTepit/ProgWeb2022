@@ -11,6 +11,6 @@ class Produto extends Model
     protected $table = "produtos";
 
     public function fornecedor(){
-        return $this->belongsTo(Fornecedores::class);
+        return $this->hasOne(Fornecedores::class);
     }
 }
