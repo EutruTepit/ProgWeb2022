@@ -58,4 +58,8 @@ class ForncedoresController extends Controller
         return redirect()->route('fornecedor_listar');
     }
 
+    function get_produtos($id){
+        return to_route('fornecedor_lista_produtos', ['id' => $id]);
+    }
+
 }

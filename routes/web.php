@@ -32,6 +32,7 @@ Route::get('/clientes/excluir/{id}', [ClientesControllers::class, 'excluir'])->n
 Route::get('/produto/cadastro', [ProdutoController::class, 'cadastro_novo'])->name('produto_cadastro');
 Route::post('/produto/novo', [ProdutoController::class, 'novo'])->name('produtos_novo');
 Route::get('/produto/lista', [ProdutoController::class, 'listar'])->name('produto_listar');
+Route::get('/produto/fornecedor/lista/{id}', [ProdutoController::class, 'listar_por_fonercedor'])->name('fornecedor_lista_produtos');
 
 // Rotas relacionadas aos fornecedores
 Route::get('/fornecedores/cadastro', [ForncedoresController::class, 'cadastro_novo'])->name('fornecedor_cadastro');
