@@ -11,7 +11,8 @@
             <th scope="col">#id</th>
             <th scope="col">Nome</th>
             <th scope="col">Telefone</th>
-            <th scope="col">Renda</th>  
+            <th scope="col">Renda</th>
+            <th scope="col">Endereços</th>
             <th scope="col">Operações</th>
         </thead>
 
@@ -22,6 +23,18 @@
                     <td> {{ $c->nome }} </td>
                     <td> {{ $c->telefone }} </td>
                     <td> {{ $c->renda }} </td>
+                    <td>
+                        @foreach ($c->enderecos as $end)
+                            Logradouro: {{ $end->logradouro }}
+                            @if ($end->numero)
+                                , num {{ $end->numero }}
+                            @endif
+                            <br>
+                            Bairro: {{ $end->bairro }} <br>
+                            Estado: {{ $end->estado->nome }} <br>
+                            <hr>
+                        @endforeach
+                    </td>
                     <td> 
                         <a href="{{ route('cliente_alterar', ['id' => $c->id]) }}" class="btn btn-warning">Alterar</a>
                         <a href="#" onclick="excluir({{ $c->id }})" class="btn btn-danger">Exluir</a>
