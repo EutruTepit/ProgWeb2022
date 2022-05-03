@@ -4,6 +4,7 @@ use App\Http\Controllers\ClientesControllers;
 use App\Http\Controllers\ForncedoresController;
 use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\TextUI\XmlConfiguration\Group;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,14 +28,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/clientes/novo', [ClientesControllers::class, 'cadastro_novo'])->name('cliente_cadastro');
     Route::post('/clientes/novo', [ClientesControllers::class, 'novo'])->name('clientes_novo');
     #Route::get('/clientes/listar', [ClientesControllers::class, 'listar'])->name('clientes_listar');
-    Route::get('/clientes/alterar/{id}', [ClientesControllers::class, 'alterar'])->name('cliente_alterar');
-    Route::post('/clientes/alterar', [ClientesControllers::class, 'salvar'])->name('clientes_salvar');
-    Route::get('/clientes/excluir/{id}', [ClientesControllers::class, 'excluir'])->name('cliente_excluir');
+    Route::middleware('verifica.nivel')->group(function(){
+        Route::get('/clientes/alterar/{id}', [ClientesControllers::class, 'alterar'])->name('cliente_alterar');
+        Route::post('/clientes/alterar', [ClientesControllers::class, 'salvar'])->name('clientes_salvar');
+        Route::get('/clientes/excluir/{id}', [ClientesControllers::class, 'excluir'])->name('cliente_excluir');
+    });
 
     // Rotas relacionadas ao produto
     Route::get('/produto/cadastro', [ProdutoController::class, 'cadastro_novo'])->name('produto_cadastro');
     Route::post('/produto/novo', [ProdutoController::class, 'novo'])->name('produtos_novo');
-    Route::get('/produto/lista', [ProdutoController::class, 'listar'])->name('produto_listar');
+    Route::middleware('verifica.idade')->group(function(){
+        Route::get('/produto/lista', [ProdutoController::class, 'listar'])->name('produto_listar');
+    });
     Route::get('/produto/fornecedor/lista/{id}', [ProdutoController::class, 'listar_por_fonercedor'])->name('fornecedor_lista_produtos');
 
     // Rotas relacionadas aos fornecedores
