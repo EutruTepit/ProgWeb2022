@@ -4,7 +4,6 @@ use App\Http\Controllers\ClientesControllers;
 use App\Http\Controllers\ForncedoresController;
 use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
-use PHPUnit\TextUI\XmlConfiguration\Group;
 
 /*
 |--------------------------------------------------------------------------

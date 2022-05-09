@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Fornecedores;
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProdutoController extends Controller
 {
@@ -20,11 +21,22 @@ class ProdutoController extends Controller
         $produto->nome = $req->input('nome');
         $produto->categoria = $req->input('categoria');
         $produto->preco = $req->input('preco');
-        $produto->fornecedor_id = $req->input('fornecedor_id');
+        $produto->fornecedores_id = $req->input('fornecedor_id');
+        #$produto->slug = ""; # default no banco, n necessário prover 
+        #$produto->caminho = "";
 
         $produto->save();
 
-        return redirect()->route('produto_listar');
+        $produto->slug = Str::slug("{$produto->nome}{$produto->id}");
+        $imagem = $req->file('file');
+        $caminho_arquivo = $imagem->storeAs('produtos', "{$produto->id}.{$imagem->extension()}");
+        $produto->caminho = "/storage/$caminho_arquivo";
+
+        $produto->save();
+
+        echo "<img src='{$produto->caminho}'>";
+        dd($produto, $req);
+        #return redirect()->route('produto_listar');
     }
 
     // Listagem de produtos
