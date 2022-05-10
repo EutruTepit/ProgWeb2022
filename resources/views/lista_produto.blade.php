@@ -28,7 +28,7 @@ Lista de Produtos
                 <tbody>
                     @foreach ($produtos as $p )
                         <tr>
-                            <td> {{ $p->id }} </td>
+                            <td> <a href="{{ route('exibir_produto', ['slug' => $p->slug]) }}">{{ $p->id }}</a> </td>
                             <td> {{ $p->nome }} </td>
                             <td> {{ $p->categoria }} </td>
                             <td> {{ $p->preco }} </td>
