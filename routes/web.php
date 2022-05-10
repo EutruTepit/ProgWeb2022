@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/produto/lista', [ProdutoController::class, 'listar'])->name('produto_listar');
     });
     Route::get('/produto/fornecedor/lista/{id}', [ProdutoController::class, 'listar_por_fonercedor'])->name('fornecedor_lista_produtos');
+    Route::get('/produto/{slug}', [ProdutoController::class, 'exibir'])->name('exibir_produto');
 
     // Rotas relacionadas aos fornecedores
     Route::get('/fornecedores/cadastro', [ForncedoresController::class, 'cadastro_novo'])->name('fornecedor_cadastro');

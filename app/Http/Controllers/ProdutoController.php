@@ -34,15 +34,19 @@ class ProdutoController extends Controller
 
         $produto->save();
 
-        echo "<img src='{$produto->caminho}'>";
-        dd($produto, $req);
-        #return redirect()->route('produto_listar');
+        return redirect()->route('produto_listar');
     }
 
     // Listagem de produtos
     function listar(){
         $produtos = Produto::all();
         return view('lista_produto', ['produtos' => $produtos]);
+    }
+
+    function exibir($slug){
+        $produto = Produto::where('slug', '=', $slug)->first();
+
+        return view('exibe_produto', ['produto' => $produto]);
     }
 
     function listar_por_fonercedor($id){
