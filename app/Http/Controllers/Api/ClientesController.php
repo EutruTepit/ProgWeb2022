@@ -76,6 +76,7 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cliente = Cliente::findOrFail($id);
+        $cliente->delete();
     }
 }
