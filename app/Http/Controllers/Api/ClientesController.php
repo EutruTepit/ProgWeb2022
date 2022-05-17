@@ -24,9 +24,17 @@ class ClientesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $conteudo = json_decode($req->getContent(), 1);
+        $cliente = new Cliente();
+        $cliente->nome = $conteudo['nome'];
+        $cliente->telefone = $conteudo['telefone'];
+        $cliente->renda = $conteudo['renda'];
+
+        $cliente->save();
+
+        return $cliente;
     }
 
     /**
