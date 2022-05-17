@@ -55,9 +55,17 @@ class ClientesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
-        //
+        $conteudo = json_decode($req->getContent(), 1);
+        $cliente = Cliente::findOrFail($id);
+        $cliente->nome = $conteudo['nome'];
+        $cliente->telefone = $conteudo['telefone'];
+        $cliente->renda = $conteudo['renda'];
+
+        $cliente->save();
+
+        return $cliente;
     }
 
     /**
